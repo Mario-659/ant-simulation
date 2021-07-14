@@ -28,7 +28,8 @@ add_executable(${PROJECT_NAME} ${WIN32_GUI} ${SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE include lib)
 target_link_libraries(${PROJECT_NAME} ${SFML_LIBS} Threads::Threads)
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_11)
-
+add_library(${PROJECT_NAME}_lib ${SOURCES})
+target_link_libraries(${PROJECT_NAME}_lib ${SFML_LIBS} Threads::Threads)
 
 if(MSVC)
     foreach(lib ${SFML_LIBS})
@@ -69,8 +70,8 @@ set(SOURCES_TST tests/main.cpp
 add_executable(${PROJECT_NAME}_tst ${SOURCES_TST})
 
 target_include_directories(${PROJECT_NAME}_tst PRIVATE include ${PROJECT_NAME})
+target_include_directories(${PROJECT_NAME}_tst PRIVATE include lib)
 target_link_libraries(${PROJECT_NAME}_tst gtest_main)
+target_link_libraries(${PROJECT_NAME}_tst ${PROJECT_NAME}_lib)
 
 add_test(NAME ${PROJECT_NAME}_tst COMMAND ${PROJECT_NAME}_tst)
-
-#####Wszystko działa tylko testy nie do końca, pokazuje undifined reference. Trzeba jakoś lepiej biblioteki zlinkować moze w targer link libraries(66)
