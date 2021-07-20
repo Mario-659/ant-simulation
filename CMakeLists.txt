@@ -21,8 +21,15 @@ endif()
 set(SFML_LIBS sfml-graphics sfml-system sfml-window)
 
 set(SOURCES src/main.cpp
-            src/TestClass.cpp
-            src/TestClass.h)
+            src/Ant.cpp
+            src/Ant.h
+            src/World.cpp
+            src/World.h
+            src/DisplayManager.cpp
+            src/DisplayManager.h
+            src/Config.cpp
+            src/Config.h
+        )
 
 add_executable(${PROJECT_NAME} ${WIN32_GUI} ${SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE include lib)
@@ -65,7 +72,8 @@ if(NOT googletest_POPULATED)
 endif()
 
 set(SOURCES_TST tests/main.cpp
-                tests/TestClass-test.cpp)
+                tests/Ant-Test.cpp
+        )
 
 add_executable(${PROJECT_NAME}_tst ${SOURCES_TST})
 
