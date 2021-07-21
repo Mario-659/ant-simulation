@@ -73,6 +73,7 @@ endif()
 
 set(SOURCES_TST tests/main.cpp
                 tests/Ant-Test.cpp
+                tests/World-test.cpp
         )
 
 add_executable(${PROJECT_NAME}_tst ${SOURCES_TST})
