@@ -29,6 +29,8 @@ set(SOURCES src/main.cpp
             src/DisplayManager.h
             src/Config.cpp
             src/Config.h
+            src/Random.h
+            src/Random.cpp
         )
 
 add_executable(${PROJECT_NAME} ${WIN32_GUI} ${SOURCES})
@@ -74,6 +76,7 @@ endif()
 set(SOURCES_TST tests/main.cpp
                 tests/Ant-Test.cpp
                 tests/World-test.cpp
+                tests/Config-test.cpp
         )
 
 add_executable(${PROJECT_NAME}_tst ${SOURCES_TST})

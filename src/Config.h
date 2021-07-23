@@ -17,9 +17,11 @@ struct Config {
     static sf::Color toHomeMarkerColor;
 
     static sf::Texture antTexture;
+    static sf::Sprite antSprite;
 
     static void readConfigFile();
     static void loadTexture();
+    static void loadSprite();
 };
 
 

@@ -5,8 +5,13 @@ void Config::readConfigFile() {
 
 }
 
+
 void Config::loadTexture() {
     if(!Config::antTexture.loadFromFile("resources/ant.png")) throw std::runtime_error("Couldn't load textures from resources/png");
+}
+
+void Config::loadSprite(){
+    Config::antSprite.setTexture(Config::antTexture);
 }
 
 ///////////Default configuration//////////
@@ -21,6 +26,9 @@ sf::Color Config::backgroundColor = sf::Color::White;
 sf::Color Config::foodColor = sf::Color::Green;
 sf::Color Config::toFoodMarkerColor = sf::Color::Blue;
 sf::Color Config::toHomeMarkerColor = sf::Color::Yellow;
+
+sf::Texture Config::antTexture;
+sf::Sprite Config::antSprite;
 
 
 

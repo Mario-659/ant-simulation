@@ -3,26 +3,31 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "Random.h"
+
 enum class Mode{
-    searchingForFood = 0,
-    toFood = 1,
-    toHome = 2
+    toFood = 0,
+    toHome = 1
 };
 
 class Ant {
 public:
-    Ant(float x = 0.0f, float y = 0.0f, float direction = 0.0f):
+    Ant(float x = 0.0f, float y = 0.0f, float direction = Random::getRandomAngle()):
         position(x, y),
         direction(direction)
-        {mode = Mode::searchingForFood;}
+        {mode = Mode::toFood;}
 
+    //TODO to implement
     void move();
 
+    //TODO to implement
     void draw();
 
     ~Ant() = default;
 
-    void setMode();
+    sf::Vector2f getPosition();
+
+    float getAngle();
 private:
     bool hasFood;
 
