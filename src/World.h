@@ -40,6 +40,8 @@ public:
     //TODO to implement
     void draw();
 
+    const sf::Texture& getWorldTexture();
+
 private:
 
     void setConfig();
@@ -58,7 +60,7 @@ private:
 
     void drawFood();
 
-    //DisplayManager* displayManager;
+    DisplayManager displayManager;
 };
 
 #endif //ANTSIMULATION_WORLD_H

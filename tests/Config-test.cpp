@@ -16,11 +16,10 @@ TEST(congig, defaultConfig){
     EXPECT_EQ(Config::toFoodMarkerColor, sf::Color::Blue);
     EXPECT_EQ(Config::toHomeMarkerColor, sf::Color::Yellow);
 
+    EXPECT_EQ(Config::scaleOfAnts, sf::Vector2f(0.2f, 0.2f));
+
     EXPECT_NO_THROW(Config::loadTexture());
     EXPECT_TRUE(Config::antTexture.getSize() != sf::Vector2u(0, 0));
-
-    Config::loadSprite();
-    EXPECT_TRUE(Config::antSprite.getTexture() != NULL);
 
 
 }

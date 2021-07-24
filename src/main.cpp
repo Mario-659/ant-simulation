@@ -25,22 +25,30 @@ int main()
 //
 //        window.display();
 //    }
-    Config::loadTexture();
-    Config::loadSprite();
-    World world(1, 10);
 
-    while(DisplayManager::window.isOpen())
-    {
-        sf::Event event;
-        while (DisplayManager::window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                DisplayManager::window.close();
-        }
-        DisplayManager::window.clear(Config::backgroundColor);
-        world.draw();
 
-        DisplayManager::window.display();
-    }
-   return 0;
+World world(1,1);
+
+
+
+
+
+//    Config::loadTexture();
+//    DisplayManager::loadAntSprite();
+//    World world(1, 1);
+//
+//    while(DisplayManager::window.isOpen())
+//    {
+//        sf::Event event;
+//        while (DisplayManager::window.pollEvent(event))
+//        {
+//            if (event.type == sf::Event::Closed)
+//                DisplayManager::window.close();
+//        }
+//        DisplayManager::window.clear(Config::backgroundColor);
+//        world.draw();
+//
+//        DisplayManager::window.display();
+//    }
+//   return 0;
 }

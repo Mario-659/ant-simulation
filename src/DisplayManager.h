@@ -3,33 +3,33 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "Config.h"
 #include "Ant.h"
 #include "World.h"
-
-//class DisplayManager {
-//public:
-//    DisplayManager();
-//
-//    ~DisplayManager();
-//
-//    void update();
-//
-//private:
-//    const sf::RenderWindow window;
-//};
 
 class DisplayManager
 {
 public:
-    static void draw(Ant ant);
+    DisplayManager();
+
+    ~DisplayManager() = default;
+
+    void draw(Ant ant);
 
     //static void draw(Marker marker);
 
     //TODO ?????
-    static void drawFood();
+    void drawFood();
 
-    static sf::RenderWindow window;
+    void loadAntSprite();
+
+    void createWorldTexture();
+
+    const sf::Texture& getWorldTexture();
+private:
+
+    sf::RenderTexture worldTexture;
+
+    sf::Sprite antSprite;
 };
 
 

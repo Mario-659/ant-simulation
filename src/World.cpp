@@ -14,6 +14,8 @@ World::World(unsigned size, unsigned nAnts) {
     //makeCells(size);
 }
 
+const sf::Texture & World::getWorldTexture() {return displayManager.getWorldTexture();}
+
 void Marker::decreaseVisibility() {visibility -+RATEOFDEACRESINGMARKERS;}
 
 sf::Vector2f Marker::getPosition(){return position;};

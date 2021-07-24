@@ -3,6 +3,8 @@
 
 sf::Vector2f Ant::getPosition() {return position;}
 
+DisplayManager* Ant::displayManager = nullptr;
+
 void Ant::move()
 {
     if(mode == Mode::toFood)
@@ -16,7 +18,9 @@ void Ant::move()
 }
 
 void Ant::draw() {
-    DisplayManager::draw(*this);
+    displayManager->draw(*this);
 }
 
 float Ant::getAngle() {return direction;}
+
+void Ant::setDisplayManager(DisplayManager *displayManag) {displayManager = displayManag;}

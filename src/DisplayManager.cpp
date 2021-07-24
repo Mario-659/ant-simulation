@@ -1,18 +1,25 @@
 #include "DisplayManager.h"
 
-//DisplayManager::DisplayManager()
-//    :window(sf::RenderWindow(sf::VideoMode(Config::windowWidth, Config::windowHeight), "Ant Simulation"))
-//{
-//    //window = sf::RenderWindow(sf::VideoMode(Config::windowWidth, Config::windowHeight), "Ant Simulation");
-//}
+DisplayManager::DisplayManager() {
+    createWorldTexture();
+    loadAntSprite();
+}
 
-sf::RenderWindow DisplayManager::window(sf::VideoMode(Config::windowWidth, Config::windowHeight), "Ant simulation");
+void DisplayManager::createWorldTexture() {
+    if(!worldTexture.create(Config::boardWidth, Config::boardHeight)) throw std::runtime_error("Couldn't create WorldTexture");
+}
 
+void DisplayManager::loadAntSprite(){
+    antSprite.setTexture(Config::antTexture);
+    antSprite.setScale(Config::scaleOfAnts);
+}
 
 void DisplayManager::draw(Ant ant) {
-    sf::Sprite sprite = Config::antSprite;
-    sprite.setPosition(ant.getPosition());
-    //TODO setRotation doesn't do what I thought it would do
-    //sprite.setRotation(ant.getAngle());
-    DisplayManager::window.draw(sprite);
+    antSprite.setPosition(ant.getPosition());
+    antSprite.setRotation(ant.getAngle());
+    worldTexture.draw(antSprite);
+}
+
+const sf::Texture& DisplayManager::getWorldTexture() {
+    return worldTexture.getTexture();
 }

@@ -11,6 +11,8 @@ struct Config {
     static unsigned boardWidth;
     static unsigned boardHeight;
 
+    static sf::Vector2f scaleOfAnts;
+
     static sf::Color backgroundColor;
     static sf::Color foodColor;
     static sf::Color toFoodMarkerColor;
@@ -21,7 +23,6 @@ struct Config {
 
     static void readConfigFile();
     static void loadTexture();
-    static void loadSprite();
 };
 
 

@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Random.h"
+#include "DisplayManager.h"
 
 enum class Mode{
     toFood = 0,
@@ -28,6 +29,8 @@ public:
     sf::Vector2f getPosition();
 
     float getAngle();
+
+    void setDisplayManager(DisplayManager* displayManag);
 private:
     bool hasFood;
 
@@ -36,6 +39,8 @@ private:
     sf::Vector2f position;
 
     Mode mode;
+
+    static DisplayManager* displayManager;
 };
 
 #endif //ANTSIMULATION_ANT_H
