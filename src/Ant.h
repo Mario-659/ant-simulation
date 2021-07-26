@@ -1,10 +1,8 @@
 #ifndef ANTSIMULATION_ANT_H
 #define ANTSIMULATION_ANT_H
 
-#include <SFML/Graphics.hpp>
-
-#include "Random.h"
 #include "DisplayManager.h"
+#include "Random.h"
 
 enum class Mode{
     toFood = 0,
@@ -22,15 +20,14 @@ public:
     void move();
 
     //TODO to implement
-    void draw();
+    void draw(DisplayManager* displayManager);
 
     ~Ant() = default;
 
     sf::Vector2f getPosition();
 
     float getAngle();
-
-    void setDisplayManager(DisplayManager* displayManag);
+    
 private:
     bool hasFood;
 

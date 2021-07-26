@@ -27,7 +27,7 @@ void World::draw() {
 }
 
 void World::drawAnts() {
-    for(auto ant:ants) ant->draw();
+    for(auto ant:ants) ant->draw(&displayManager);
 }
 
 //TODO to implement

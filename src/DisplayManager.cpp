@@ -1,4 +1,5 @@
 #include "DisplayManager.h"
+#include "Config.h"
 
 DisplayManager::DisplayManager() {
     createWorldTexture();
@@ -14,9 +15,9 @@ void DisplayManager::loadAntSprite(){
     antSprite.setScale(Config::scaleOfAnts);
 }
 
-void DisplayManager::draw(Ant ant) {
-    antSprite.setPosition(ant.getPosition());
-    antSprite.setRotation(ant.getAngle());
+void DisplayManager::drawAnt(sf::Vector2f position, float angle) {
+    antSprite.setPosition(position);
+    antSprite.setRotation(angle);
     worldTexture.draw(antSprite);
 }
 

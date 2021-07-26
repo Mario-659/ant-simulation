@@ -3,9 +3,6 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "Ant.h"
-#include "World.h"
-
 class DisplayManager
 {
 public:
@@ -13,19 +10,19 @@ public:
 
     ~DisplayManager() = default;
 
-    void draw(Ant ant);
+    void drawAnt(sf::Vector2f position, float angle);
 
-    //static void draw(Marker marker);
+    //void drawMarker();
 
     //TODO ?????
     void drawFood();
 
-    void loadAntSprite();
-
     void createWorldTexture();
 
     const sf::Texture& getWorldTexture();
+
 private:
+    void loadAntSprite();
 
     sf::RenderTexture worldTexture;
 

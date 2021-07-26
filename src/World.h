@@ -1,6 +1,7 @@
 #ifndef ANTSIMULATION_WORLD_H
 #define ANTSIMULATION_WORLD_H
 
+#include <SFML/Graphics.hpp>
 #include <vector>
 
 #include "Ant.h"
