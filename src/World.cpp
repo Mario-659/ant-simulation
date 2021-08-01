@@ -22,8 +22,8 @@ sf::Vector2f Marker::getPosition(){return position;};
 
 void World::draw() {
     drawAnts();
-    drawFood();
-    drawMarkers();
+    //drawFood();
+    //drawMarkers();
 }
 
 void World::drawAnts() {

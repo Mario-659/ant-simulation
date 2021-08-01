@@ -6,11 +6,6 @@ void Config::readConfigFile() {
 }
 
 
-void Config::loadTexture() {
-    if(!Config::antTexture.loadFromFile("resources/ant.png")) throw std::runtime_error("Couldn't load textures from resources/png");
-}
-
-
 ///////////Default configuration//////////
 
 unsigned Config::numberOfAnts = 20;
@@ -25,9 +20,6 @@ sf::Color Config::toFoodMarkerColor = sf::Color::Blue;
 sf::Color Config::toHomeMarkerColor = sf::Color::Yellow;
 
 sf::Vector2f Config::scaleOfAnts(0.1f, 0.1f);
-
-sf::Texture Config::antTexture;
-sf::Sprite Config::antSprite;
 
 
 

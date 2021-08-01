@@ -24,9 +24,14 @@ public:
 private:
     void loadAntSprite();
 
-    sf::RenderTexture worldTexture;
+    void loadAntTexture();
 
     sf::Sprite antSprite;
+
+    sf::Texture antTexture;
+
+    sf::RenderTexture worldTexture;
+
 };
 
 
