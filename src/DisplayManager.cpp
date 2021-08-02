@@ -3,6 +3,7 @@
 
 DisplayManager::DisplayManager() {
     createWorldTexture();
+    loadView();
     loadAntTexture();
     loadAntSprite();
 }
@@ -14,11 +15,28 @@ void DisplayManager::createWorldTexture() {
 
 void DisplayManager::loadAntSprite(){
     antSprite.setTexture(antTexture);
+
+    float width, height;
+    width = antTexture.getSize().x;
+    height = antTexture.getSize().y;
+
+    antSprite.setOrigin(width/2, height/2);
     antSprite.setScale(Config::scaleOfAnts);
 }
 
 void DisplayManager::loadAntTexture(){
     if(!antTexture.loadFromFile("resources/ant.png")) throw std::runtime_error("Couldn't load textures from resources/png");
+}
+
+void DisplayManager::loadView() {
+    view.setCenter(sf::Vector2f(0.f, 0.f));
+    view.setSize(sf::Vector2f(Config::windowWidth, Config::windowHeight));
+    worldTexture.setView(view);
+}
+
+void DisplayManager::moveView(sf::Vector2f offset) {
+    view.move(offset);
+    worldTexture.setView(view);
 }
 
 void DisplayManager::drawAnt(sf::Vector2f position, float angle) {

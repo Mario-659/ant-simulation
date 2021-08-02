@@ -4,14 +4,9 @@
 
 void World::makeAnts(unsigned numberOfAnts) {for(int i = 0; i<numberOfAnts; i++) ants.push_back(new Ant());}
 
-//void World::makeCells(unsigned sizeOfBoard) {
-//    unsigned nCells = sizeOfBoard * sizeOfBoard;
-//    for(int i = 0; i<nCells; i++) cells.push_back(new Cell());
-//}
 
 World::World(unsigned size, unsigned nAnts) {
     makeAnts(nAnts);
-    //makeCells(size);
 }
 
 const sf::Texture & World::getWorldTexture() {return displayManager.getWorldTexture();}
@@ -39,3 +34,12 @@ World::~World() {
     for(auto marker:markers) delete marker;
 }
 
+void World::moveView(sf::Vector2f offset) {
+    displayManager.moveView(offset);
+}
+
+void World::moveAnts() {
+    for(auto ant : ants) ant->move(markers);
+}
+
+Mode Marker::getMode() {return type;}

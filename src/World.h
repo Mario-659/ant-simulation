@@ -19,6 +19,8 @@ public:
     sf::Vector2f getPosition();
 
     void decreaseVisibility();
+
+    Mode getMode();
 private:
     float visibility;
 
@@ -43,7 +45,10 @@ public:
 
     const sf::Texture& getWorldTexture();
 
+    void moveView(sf::Vector2f offset);
+
 private:
+    void moveAnts();
 
     void setConfig();
 

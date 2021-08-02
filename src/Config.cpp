@@ -9,8 +9,8 @@ void Config::readConfigFile() {
 ///////////Default configuration//////////
 
 unsigned Config::numberOfAnts = 20;
-unsigned Config::windowWidth = 700;
-unsigned Config::windowHeight = 700;
+float Config::windowWidth = 700;
+float Config::windowHeight = 700;
 unsigned Config::boardWidth = 1400;
 unsigned Config::boardHeight = 1400;
 

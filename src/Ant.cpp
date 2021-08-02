@@ -4,8 +4,19 @@ sf::Vector2f Ant::getPosition() {return position;}
 
 DisplayManager* Ant::displayManager = nullptr;
 
-void Ant::move()
+void Ant::move(std::vector<Marker*> markers)
 {
+    if(hasFood)
+    {
+        float minDistance;
+        for (auto marker: markers) {
+
+        }
+    }
+    else
+    {
+
+    }
 
 }
 

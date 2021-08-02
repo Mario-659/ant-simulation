@@ -18,8 +18,6 @@ TEST(congig, defaultConfig){
 
     EXPECT_EQ(Config::scaleOfAnts, sf::Vector2f(0.2f, 0.2f));
 
-    EXPECT_NO_THROW(Config::loadTexture());
-    EXPECT_TRUE(Config::antTexture.getSize() != sf::Vector2u(0, 0));
 
 
 }

@@ -19,12 +19,18 @@ public:
 
     void createWorldTexture();
 
+    void moveView(sf::Vector2f offset);
+
     const sf::Texture& getWorldTexture();
+
+    
 
 private:
     void loadAntSprite();
 
     void loadAntTexture();
+
+    void loadView();
 
     sf::Sprite antSprite;
 
@@ -32,6 +38,7 @@ private:
 
     sf::RenderTexture worldTexture;
 
+    sf::View view;
 };
 
 

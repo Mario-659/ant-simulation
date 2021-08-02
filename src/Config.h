@@ -6,8 +6,8 @@
 struct Config {
 
     static unsigned numberOfAnts;
-    static unsigned windowWidth;
-    static unsigned windowHeight;
+    static float windowWidth;
+    static float windowHeight;
     static unsigned boardWidth;
     static unsigned boardHeight;
 

@@ -1,8 +1,12 @@
 #ifndef ANTSIMULATION_ANT_H
 #define ANTSIMULATION_ANT_H
 
+#include <Vector>
+
 #include "DisplayManager.h"
 #include "Random.h"
+
+class Marker;
 
 enum class Mode{
     toFood = 0,
@@ -17,7 +21,7 @@ public:
         {mode = Mode::toFood;}
 
     //TODO to implement
-    void move();
+    void move(std::vector<Marker*> markers);
 
     //TODO to implement
     void draw(DisplayManager* displayManager);
