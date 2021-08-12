@@ -31,6 +31,10 @@ set(SOURCES src/main.cpp
             src/Config.h
             src/Random.h
             src/Random.cpp
+            src/Marker.cpp
+            src/Marker.h
+            src/Utils.cpp
+            src/Utils.h
         )
 
 add_executable(${PROJECT_NAME} ${WIN32_GUI} ${SOURCES})
@@ -77,7 +81,9 @@ set(SOURCES_TST tests/main.cpp
                 tests/Ant-Test.cpp
                 tests/World-test.cpp
                 tests/Config-test.cpp
-        )
+                tests/Utils-test.cpp
+                tests/Random-test.cpp
+                )
 
 add_executable(${PROJECT_NAME}_tst ${SOURCES_TST})
 

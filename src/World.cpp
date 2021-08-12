@@ -1,19 +1,14 @@
 #include "World.h"
 
-#define RATEOFDEACRESINGMARKERS 0.1
-
 void World::makeAnts(unsigned numberOfAnts) {for(int i = 0; i<numberOfAnts; i++) ants.push_back(new Ant());}
 
 
 World::World(unsigned size, unsigned nAnts) {
     makeAnts(nAnts);
+    markerContainer = new MarkerContainer();
 }
 
 const sf::Texture & World::getWorldTexture() {return displayManager.getWorldTexture();}
-
-void Marker::decreaseVisibility() {visibility -+RATEOFDEACRESINGMARKERS;}
-
-sf::Vector2f Marker::getPosition(){return position;};
 
 void World::draw() {
     drawAnts();
@@ -31,7 +26,7 @@ void World::drawFood() {}
 
 World::~World() {
     for(auto ant:ants) delete ant;
-    for(auto marker:markers) delete marker;
+    delete markerContainer;
 }
 
 void World::moveView(sf::Vector2f offset) {
@@ -39,7 +34,10 @@ void World::moveView(sf::Vector2f offset) {
 }
 
 void World::moveAnts() {
-    for(auto ant : ants) ant->move(markers);
+    for(auto ant : ants) ant->move(*markerContainer);
 }
 
-Mode Marker::getMode() {return type;}
+void World::update() {
+    displayManager.clearTexture();
+    moveAnts();
+}

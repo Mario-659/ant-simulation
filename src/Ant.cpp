@@ -1,23 +1,32 @@
 #include "Ant.h"
 
+#include "Utils.h"
+
+#define DISTANCETOMARKER 20.f
+#define MINANGLE -5.f
+#define MAXANGLE 5.f
+#define DISTANCEWHENMOVING 0.5
+
 sf::Vector2f Ant::getPosition() {return position;}
 
 DisplayManager* Ant::displayManager = nullptr;
 
-void Ant::move(std::vector<Marker*> markers)
+void Ant::move(MarkerContainer markerContainer)
 {
-    if(hasFood)
+    //TODO refactor
+    Marker* nearestMarker = markerContainer.getNearestMarker(position, mode);
+    if(nearestMarker && utils::getDistance(position, nearestMarker->getPosition()) < DISTANCETOMARKER) //first one checks if it is not nullptr
     {
-        float minDistance;
-        for (auto marker: markers) {
-
-        }
+        direction = utils::getAngle(position, nearestMarker->getPosition());
     }
     else
     {
-
+        direction += Random::getRandom(MINANGLE, MAXANGLE);
+        if(direction >= 360.f) direction -= 360.f;
+        else if(direction < 0) direction += 360.f;
     }
-
+    sf::Vector2f movement = utils::getVector(direction, DISTANCEWHENMOVING);
+    position += movement;
 }
 
 void Ant::draw(DisplayManager* displayManager) {

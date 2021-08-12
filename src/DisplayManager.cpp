@@ -41,11 +41,15 @@ void DisplayManager::moveView(sf::Vector2f offset) {
 
 void DisplayManager::drawAnt(sf::Vector2f position, float angle) {
     antSprite.setPosition(position);
-    antSprite.setRotation(angle);
+    antSprite.setRotation(angle + 90.f);        //TODO don't know why i need to add these 90 degrees
     worldTexture.draw(antSprite);
 }
 
 const sf::Texture& DisplayManager::getWorldTexture() {
     worldTexture.display();
     return worldTexture.getTexture();
+}
+
+void DisplayManager::clearTexture() {
+    worldTexture.clear(Config::backgroundColor);
 }

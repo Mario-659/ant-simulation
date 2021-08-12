@@ -2,6 +2,7 @@
 #define ANTSIMULATION_UTILS_H
 
 #include <SFML/Graphics.hpp>
+#include <random>
 
 namespace utils{
 
@@ -9,7 +10,7 @@ namespace utils{
 
     float getAngle(sf::Vector2f pos1, sf::Vector2f pos2);
 
-    float getDegrees(float radians);
+    sf::Vector2f getVector(float angle, float distance);
 }
 
 

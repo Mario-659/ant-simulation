@@ -5,8 +5,8 @@
 
 #include "DisplayManager.h"
 #include "Random.h"
+#include "Marker.h"
 
-class Marker;
 
 enum class Mode{
     toFood = 0,
@@ -21,7 +21,7 @@ public:
         {mode = Mode::toFood;}
 
     //TODO to implement
-    void move(std::vector<Marker*> markers);
+    void move(MarkerContainer markerContainer);
 
     //TODO to implement
     void draw(DisplayManager* displayManager);

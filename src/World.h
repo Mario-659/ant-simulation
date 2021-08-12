@@ -7,27 +7,7 @@
 #include "Ant.h"
 #include "DisplayManager.h"
 #include "Config.h"
-
-class Marker
-{
-public:
-    Marker(float x, float y, Mode mode)
-        :position(x, y),
-        type(mode),
-        visibility(1.f){}
-
-    sf::Vector2f getPosition();
-
-    void decreaseVisibility();
-
-    Mode getMode();
-private:
-    float visibility;
-
-    Mode type;
-
-    sf::Vector2f position;
-};
+#include "Marker.h"
 
 
 class World
@@ -47,18 +27,17 @@ public:
 
     void moveView(sf::Vector2f offset);
 
-private:
     void moveAnts();
+private:
+
 
     void setConfig();
 
     std::vector<Ant*> ants;
 
-    std::vector<Marker*> markers;
+    MarkerContainer* markerContainer;
 
     void makeAnts(unsigned numberOfAnts);
-
-    //void makeCells(unsigned sizeOfBoard);
 
     void drawAnts();
 

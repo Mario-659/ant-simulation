@@ -7,6 +7,9 @@ class Random {
 public:
 
     static float getRandomAngle();
+
+    static float getRandom(float min, float max);
+
 private:
     static std::default_random_engine randomEngine;
 };

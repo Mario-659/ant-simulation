@@ -23,7 +23,7 @@ public:
 
     const sf::Texture& getWorldTexture();
 
-    
+    void clearTexture();
 
 private:
     void loadAntSprite();

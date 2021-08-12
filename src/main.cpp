@@ -42,6 +42,7 @@ World world(1,3);
         worldSprite.setTexture(world.getWorldTexture());
         window.draw(worldSprite);
 
+        world.update();         //clears world texture and moves ants
         ////////////////
 
 
