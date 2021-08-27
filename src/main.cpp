@@ -6,7 +6,7 @@
 int main()
 {
 
-World world(1,3);
+    World world(1,20);
 
     sf::RenderWindow window(sf::VideoMode(1400, 1400), "Ant Simulation");
     sf::Vector2u mousePosition(0, 0);
@@ -34,6 +34,16 @@ World world(1,3);
 //
 //            mousePosition = newPosition;
 //        }
+
+        ///adding food when clicking
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Right))
+        {
+//            sf::Vector2f mousePosition;
+//            mousePosition.x = sf::Mouse::getPosition().x;
+//            mousePosition.y = sf::Mouse::getPosition().y;
+
+            world.addFood(sf::Vector2f(100.f, 100.f));
+        }
 
 
         ////////////////

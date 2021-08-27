@@ -8,6 +8,7 @@
 #include "DisplayManager.h"
 #include "Config.h"
 #include "Marker.h"
+#include "Food.h"
 
 
 class World
@@ -28,14 +29,18 @@ public:
     void moveView(sf::Vector2f offset);
 
     void moveAnts();
-private:
 
+    void addFood(sf::Vector2f position);
+
+private:
 
     void setConfig();
 
     std::vector<Ant*> ants;
 
     MarkerContainer* markerContainer;
+
+    Food* foodPoints;
 
     void makeAnts(unsigned numberOfAnts);
 

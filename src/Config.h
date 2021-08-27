@@ -12,6 +12,7 @@ struct Config {
     static unsigned boardHeight;
 
     static sf::Vector2f scaleOfAnts;
+    static float foodRadius;
 
     static sf::Color backgroundColor;
     static sf::Color foodColor;

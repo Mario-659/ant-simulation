@@ -14,8 +14,7 @@ public:
 
     //void drawMarker();
 
-    //TODO ?????
-    void drawFood();
+    void drawFood(sf::Vector2f position);
 
     void createWorldTexture();
 
@@ -31,6 +30,10 @@ private:
     void loadAntTexture();
 
     void loadView();
+
+    void createFoodSprite();
+
+    sf::CircleShape food;
 
     sf::Sprite antSprite;
 

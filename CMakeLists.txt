@@ -35,6 +35,8 @@ set(SOURCES src/main.cpp
             src/Marker.h
             src/Utils.cpp
             src/Utils.h
+            src/Food.cpp
+            src/Food.h
         )
 
 add_executable(${PROJECT_NAME} ${WIN32_GUI} ${SOURCES})
@@ -83,6 +85,7 @@ set(SOURCES_TST tests/main.cpp
                 tests/Config-test.cpp
                 tests/Utils-test.cpp
                 tests/Random-test.cpp
+                tests/Food-test.cpp
                 )
 
 add_executable(${PROJECT_NAME}_tst ${SOURCES_TST})

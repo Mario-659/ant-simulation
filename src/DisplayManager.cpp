@@ -6,6 +6,7 @@ DisplayManager::DisplayManager() {
     loadView();
     loadAntTexture();
     loadAntSprite();
+    createFoodSprite();
 }
 
 void DisplayManager::createWorldTexture() {
@@ -22,6 +23,12 @@ void DisplayManager::loadAntSprite(){
 
     antSprite.setOrigin(width/2, height/2);
     antSprite.setScale(Config::scaleOfAnts);
+}
+
+void DisplayManager::createFoodSprite() {
+        food.setRadius(Config::foodRadius);
+        food.setOrigin(Config::foodRadius/2, Config::foodRadius/2);   //TODO not sure about that
+        food.setFillColor(Config::foodColor);
 }
 
 void DisplayManager::loadAntTexture(){
@@ -43,6 +50,11 @@ void DisplayManager::drawAnt(sf::Vector2f position, float angle) {
     antSprite.setPosition(position);
     antSprite.setRotation(angle + 90.f);        //TODO don't know why i need to add these 90 degrees
     worldTexture.draw(antSprite);
+}
+
+void DisplayManager::drawFood(sf::Vector2f position) {
+    food.setPosition(position);
+    worldTexture.draw(food);
 }
 
 const sf::Texture& DisplayManager::getWorldTexture() {

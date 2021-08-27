@@ -6,6 +6,7 @@
 #include "DisplayManager.h"
 #include "Random.h"
 #include "Marker.h"
+#include "Food.h"
 
 
 enum class Mode{
@@ -21,7 +22,7 @@ public:
         {mode = Mode::toFood;}
 
     //TODO to implement
-    void move(MarkerContainer markerContainer);
+    void move(MarkerContainer markerContainer, Food foodPoints);
 
     //TODO to implement
     void draw(DisplayManager* displayManager);

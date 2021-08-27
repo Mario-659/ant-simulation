@@ -19,7 +19,8 @@ sf::Color Config::foodColor = sf::Color::Green;
 sf::Color Config::toFoodMarkerColor = sf::Color::Blue;
 sf::Color Config::toHomeMarkerColor = sf::Color::Yellow;
 
-sf::Vector2f Config::scaleOfAnts(0.1f, 0.1f);
+sf::Vector2f Config::scaleOfAnts(0.05f, 0.05f);
+float Config::foodRadius = 1.f;
 
 
 
