@@ -5,13 +5,14 @@
 Food::Food() {}
 
 void Food::addFood(sf::Vector2f pos) {
-    foodPoints.push_back(pos);
+    foodPoints.push_back(new sf::Vector2f(pos));
 }
 
 void Food::takeFood(sf::Vector2f pos) {
     if(foodPoints.empty()) throw std::runtime_error("Food positions data underflow");
+
     for(int i=0; i<foodPoints.size(); i++){
-        if(foodPoints[i].x == pos.x && foodPoints[i].y == pos.y){
+        if(foodPoints[i]->x == pos.x && foodPoints[i]->y == pos.y){
             foodPoints.erase(foodPoints.begin() + i);
         }
     }
@@ -20,20 +21,19 @@ void Food::takeFood(sf::Vector2f pos) {
 sf::Vector2f* Food::getNearestFood(sf::Vector2f pos) {
     if(foodPoints.empty()) return nullptr;
 
-    //TODO this is copy paste from Marker, refactor
     sf::Vector2f* nearestFoodPoint;
-    float nearestDistance = utils::getDistance(pos, foodPoints[0]);
+    float nearestDistance = utils::getDistance(pos, *foodPoints[0]);
 
-    for (auto foodPoint: foodPoints) {
-            float distance = utils::getDistance(pos, foodPoint);
-            if(distance < nearestDistance){
-                nearestFoodPoint = &foodPoint;
-                nearestDistance = distance;
-            }
+    for(int i=0; i<foodPoints.size(); i++){
+        float distance = utils::getDistance(pos, *foodPoints[i]);
+        if(distance <= nearestDistance){
+            nearestFoodPoint = foodPoints[i];
+            nearestDistance = distance;
+        }
     }
     return nearestFoodPoint;
 }
 
 void Food::drawFood(DisplayManager *displayManager) {
-    for(auto food: foodPoints) displayManager->drawFood(food);
+    for(auto food: foodPoints) displayManager->drawFood(*food);
 }

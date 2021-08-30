@@ -6,10 +6,14 @@
 
 #include "DisplayManager.h"
 
+
+
 class Food {
 public:
 
     Food();
+
+    ~Food() = default;
 
     sf::Vector2f* getNearestFood(sf::Vector2f pos);
 
@@ -20,7 +24,8 @@ public:
     void drawFood(DisplayManager* displayManager);
 
 private:
-    std::vector<sf::Vector2f> foodPoints;
+
+    std::vector<sf::Vector2f*> foodPoints;
 };
 
 

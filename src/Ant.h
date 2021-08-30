@@ -22,7 +22,7 @@ public:
         {mode = Mode::toFood;}
 
     //TODO to implement
-    void move(MarkerContainer markerContainer, Food foodPoints);
+    void move(MarkerContainer* markerContainer, Food* foodPoints);
 
     //TODO to implement
     void draw(DisplayManager* displayManager);
@@ -34,6 +34,12 @@ public:
     float getAngle();
     
 private:
+    void directionToMarker(MarkerContainer* markerContainer);
+
+    void moveForward();
+
+    void takeFood(Food* food);
+
     bool hasFood;
 
     float direction;

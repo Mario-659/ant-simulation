@@ -38,11 +38,12 @@ int main()
         ///adding food when clicking
         if(sf::Mouse::isButtonPressed(sf::Mouse::Right))
         {
-//            sf::Vector2f mousePosition;
-//            mousePosition.x = sf::Mouse::getPosition().x;
-//            mousePosition.y = sf::Mouse::getPosition().y;
+            sf::Vector2f mousePosition;
+            //TODO not exactly that point with this getPosition
+            mousePosition.x = sf::Mouse::getPosition(window).x - Config::windowWidth;
+            mousePosition.y = sf::Mouse::getPosition(window).y - Config::windowHeight;
 
-            world.addFood(sf::Vector2f(100.f, 100.f));
+            world.addFood(sf::Vector2f(mousePosition));
         }
 
 

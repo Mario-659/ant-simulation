@@ -8,5 +8,3 @@ TEST(foodTest, returnsNullptrWhenEmpty){
     auto pointer = food.getNearestFood(sf::Vector2f(0, 0));
     EXPECT_TRUE(pointer == nullptr);
 }
-
-TEST(foodTest, retur)

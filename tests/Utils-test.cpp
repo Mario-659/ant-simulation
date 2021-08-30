@@ -37,6 +37,12 @@ TEST_F(getDistance, handlesDifficultPositions){
     EXPECT_FLOAT_EQ(dist, 40.970656);
 }
 
+TEST_F(getDistance, handlesPointers){
+    sf::Vector2f* positionPointer = new sf::Vector2f(10.f, 0.f);
+    dist = utils::getDistance(sf::Vector2f(0.f, 0.f), *positionPointer);
+    EXPECT_FLOAT_EQ(dist, 10.f);
+}
+
 class getAngle: public ::testing::Test{
 public:
     void SetUp(){};
@@ -95,4 +101,5 @@ TEST_F(getAngle, handlesEqualPositions){
     angle = utils::getAngle(sf::Vector2f(13.f, -11.908), sf::Vector2f(13.f, -11.908));
     EXPECT_FLOAT_EQ(angle, 0.f);
 };
+
 

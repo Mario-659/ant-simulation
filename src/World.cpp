@@ -38,7 +38,7 @@ void World::moveView(sf::Vector2f offset) {
 }
 
 void World::moveAnts() {
-    for(auto ant : ants) ant->move(*markerContainer, *foodPoints);
+    for(auto ant : ants) ant->move(markerContainer, foodPoints);
 }
 
 void World::update() {
