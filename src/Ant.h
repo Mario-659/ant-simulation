@@ -9,17 +9,12 @@
 #include "Food.h"
 
 
-enum class Mode{
-    toFood = 0,
-    toHome = 1
-};
-
 class Ant {
 public:
     Ant(float x = 0.0f, float y = 0.0f, float direction = Random::getRandomAngle()):
         position(x, y),
         direction(direction)
-        {mode = Mode::toFood;}
+        {hasFood = false;}
 
     //TODO to implement
     void move(MarkerContainer* markerContainer, Food* foodPoints);
@@ -32,21 +27,25 @@ public:
     sf::Vector2f getPosition();
 
     float getAngle();
+
+    bool isCarryingFood();
     
 private:
+    void leaveMarker(MarkerContainer& markerContainer);
+
     void directionToMarker(MarkerContainer* markerContainer);
 
     void moveForward();
 
     void takeFood(Food* food);
 
+    void leaveFood(Food* food);
+
     bool hasFood;
 
     float direction;
 
     sf::Vector2f position;
-
-    Mode mode;
 
     static DisplayManager* displayManager;
 };

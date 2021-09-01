@@ -3,7 +3,10 @@
 
 #include <SFML/Graphics.hpp>
 
-enum class Mode;
+enum class Mode{
+    toFood = 0,
+    toHome = 1
+};
 
 class Marker
 {

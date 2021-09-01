@@ -18,7 +18,7 @@ void MarkerContainer::addMarker(sf::Vector2f position, Mode mode) {
 Marker* MarkerContainer::getNearestMarker(sf::Vector2f position, Mode mode) {
     if(markers.empty()) return nullptr;
 
-    Marker* nearestMarker;
+    Marker* nearestMarker = markers[0];
     float nearestDistance = utils::getDistance(position, markers[0]->getPosition());
 
     for (auto marker: markers) {

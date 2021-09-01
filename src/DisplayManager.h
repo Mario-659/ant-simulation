@@ -10,7 +10,7 @@ public:
 
     ~DisplayManager() = default;
 
-    void drawAnt(sf::Vector2f position, float angle);
+    void drawAnt(sf::Vector2f position, float angle, bool hasFood);
 
     //void drawMarker();
 

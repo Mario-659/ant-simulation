@@ -46,10 +46,12 @@ void DisplayManager::moveView(sf::Vector2f offset) {
     worldTexture.setView(view);
 }
 
-void DisplayManager::drawAnt(sf::Vector2f position, float angle) {
+//TODO to refactor (too many arguments)
+void DisplayManager::drawAnt(sf::Vector2f position, float angle, bool hasFood) {
     antSprite.setPosition(position);
     antSprite.setRotation(angle + 90.f);        //TODO don't know why i need to add these 90 degrees
     worldTexture.draw(antSprite);
+    if(hasFood) drawFood(position);
 }
 
 void DisplayManager::drawFood(sf::Vector2f position) {
