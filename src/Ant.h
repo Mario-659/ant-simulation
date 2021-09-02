@@ -14,7 +14,9 @@ public:
     Ant(float x = 0.0f, float y = 0.0f, float direction = Random::getRandomAngle()):
         position(x, y),
         direction(direction)
-        {hasFood = false;}
+        {hasFood = false;
+        twoLastMarkers[0]= nullptr;
+        twoLastMarkers[1]= nullptr;}
 
     //TODO to implement
     void move(MarkerContainer* markerContainer, Food* foodPoints);
@@ -29,8 +31,10 @@ public:
     float getAngle();
 
     bool isCarryingFood();
-    
+
+    void addLastMarker(Marker* lastMarker);
 private:
+
     void leaveMarker(MarkerContainer& markerContainer);
 
     void directionToMarker(MarkerContainer* markerContainer);
@@ -40,6 +44,8 @@ private:
     void takeFood(Food* food);
 
     void leaveFood(Food* food);
+
+    Marker* twoLastMarkers[2];
 
     bool hasFood;
 

@@ -36,6 +36,8 @@ public:
 
     Marker* getNearestMarker(sf::Vector2f position, Mode mode);
 
+    Marker* getNearestMarker(sf::Vector2f position, Mode mode, Marker* markersToAvoid[2]);
+
     float getNearestDistToMarker(sf::Vector2f position, Mode mode);
 
 private:

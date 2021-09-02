@@ -1,5 +1,4 @@
 #include "Ant.h"
-
 #include "Utils.h"
 
 #define DISTANCETOMARKER 2.f
@@ -8,6 +7,7 @@
 #define DISTANCEWHENMOVING 0.5
 #define DISTANCETOFOOD 2
 #define DISTANCETOCOLONY 3
+#define TURNSTOLEAVEMARKER 10
 
 sf::Vector2f Ant::getPosition() {return position;}
 
@@ -28,7 +28,7 @@ void Ant::directionToMarker(MarkerContainer* markerContainer) {
     if(!hasFood) mode = Mode::toFood;
     else mode = Mode::toHome;
 
-    Marker* nearestMarker = markerContainer->getNearestMarker(position, mode);
+    Marker* nearestMarker = markerContainer->getNearestMarker(position, mode, twoLastMarkers);
     if(nearestMarker && utils::getDistance(position, nearestMarker->getPosition()) < DISTANCETOMARKER)
     {
         direction = utils::getAngle(position, nearestMarker->getPosition());
@@ -39,6 +39,7 @@ void Ant::directionToMarker(MarkerContainer* markerContainer) {
         if(direction >= 360.f) direction -= 360.f;
         else if(direction < 0) direction += 360.f;
     }
+    addLastMarker(nearestMarker);
 }
 
 void Ant::moveForward() {
@@ -69,10 +70,20 @@ void Ant::draw(DisplayManager* displayManager) {
 }
 
 void Ant::leaveMarker(MarkerContainer& markerContainer) {
-    if(!hasFood) markerContainer.addMarker(position, Mode::toHome);
-    else markerContainer.addMarker(position, Mode::toFood);
+    static int turnsToLeaveMarker = TURNSTOLEAVEMARKER;
+    turnsToLeaveMarker--;
+    if(turnsToLeaveMarker == 0){
+        if(!hasFood) markerContainer.addMarker(position, Mode::toHome);
+        else markerContainer.addMarker(position, Mode::toFood);
+        turnsToLeaveMarker = TURNSTOLEAVEMARKER;
+    }
 }
 
 float Ant::getAngle() {return direction;}
 
 bool Ant::isCarryingFood() {return hasFood;}
+
+void Ant::addLastMarker(Marker* lastMarker) {
+    twoLastMarkers[1] = twoLastMarkers[0];
+    twoLastMarkers[0] = lastMarker;
+}

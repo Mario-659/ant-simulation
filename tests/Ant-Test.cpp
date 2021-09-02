@@ -8,9 +8,11 @@ TEST(Ant, Constructor){
 
     Ant ant(X, Y, Dir);
     EXPECT_EQ(ant.getPosition(), position);
+    EXPECT_FALSE(ant.isCarryingFood());
 
     sf::Vector2f position2(0.0f, 0.0f);
     Ant ant2;
     EXPECT_EQ(ant2.getPosition(), position2);
+    EXPECT_FALSE(ant.isCarryingFood());
 }
 
