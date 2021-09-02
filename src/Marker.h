@@ -11,26 +11,21 @@ enum class Mode{
 class Marker
 {
 public:
-    Marker(sf::Vector2f position, Mode mode)
+    Marker(sf::Vector2f position)
             :position(position),
-             type(mode),
              visibility(1.f){}
 
     sf::Vector2f getPosition();
 
     void decreaseVisibility();
 
-    Mode getMode();
 private:
     float visibility;
-
-    Mode type;
 
     sf::Vector2f position;
 };
 
 class MarkerContainer{
-
 public:
 
     MarkerContainer();
@@ -44,7 +39,9 @@ public:
     float getNearestDistToMarker(sf::Vector2f position, Mode mode);
 
 private:
-    std::vector<Marker*> markers;
+    std::vector<Marker*> toFoodMarkers;
+
+    std::vector<Marker*> toHomeMarkers;
 
 };
 
