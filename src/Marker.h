@@ -19,6 +19,8 @@ public:
 
     void decreaseVisibility();
 
+    float getVisibility();
+
 private:
     float visibility;
 
@@ -37,6 +39,8 @@ public:
     Marker* getNearestMarker(sf::Vector2f position, Mode mode);
 
     Marker* getNearestMarker(sf::Vector2f position, Mode mode, Marker* markersToAvoid[2]);
+
+    void decreaseVisibility();
 
     float getNearestDistToMarker(sf::Vector2f position, Mode mode);
 

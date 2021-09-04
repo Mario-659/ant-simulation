@@ -7,6 +7,8 @@ void Marker::decreaseVisibility() {visibility -+RATEOFDEACRESINGMARKERS;}
 
 sf::Vector2f Marker::getPosition(){return position;};
 
+float Marker::getVisibility() {return visibility;}
+
 MarkerContainer::MarkerContainer() {}
 
 void MarkerContainer::addMarker(sf::Vector2f position, Mode mode) {
@@ -78,4 +80,24 @@ Marker* MarkerContainer::getNearestMarker(sf::Vector2f position, Mode mode, Mark
 
 float MarkerContainer::getNearestDistToMarker(sf::Vector2f position, Mode mode) {
     return utils::getDistance(position, getNearestMarker(position, mode)->getPosition());
+}
+
+//TODO refactor
+void MarkerContainer::decreaseVisibility() {
+    for(auto marker: toFoodMarkers) marker->decreaseVisibility();
+    for(auto marker: toHomeMarkers) marker-> decreaseVisibility();
+
+    for (int i=0; i<toFoodMarkers.size(); i++) {
+        if(toFoodMarkers[i]->getVisibility() <= 0.f){
+            delete toFoodMarkers[i];
+            toFoodMarkers.erase(toFoodMarkers.begin() + i);
+        }
+    }
+    for (int i=0; i<toHomeMarkers.size(); i++) {
+        if(toHomeMarkers[i]->getVisibility() <= 0.f){
+            delete toHomeMarkers[i];
+            toHomeMarkers.erase(toHomeMarkers.begin() + i);
+        }
+    }
+
 }

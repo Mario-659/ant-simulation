@@ -20,6 +20,7 @@ void Ant::move(MarkerContainer* markerContainer, Food* foodPoints)
     takeFood(foodPoints);
     leaveFood(foodPoints);
     leaveMarker(*markerContainer);
+    markerContainer->decreaseVisibility();
 }
 
 //TODO refactor
