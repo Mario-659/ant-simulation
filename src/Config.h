@@ -13,6 +13,7 @@ struct Config {
 
     static sf::Vector2f scaleOfAnts;
     static float foodRadius;
+    static float markerRadius;
 
     static sf::Color backgroundColor;
     static sf::Color foodColor;

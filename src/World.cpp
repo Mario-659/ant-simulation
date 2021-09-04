@@ -14,7 +14,7 @@ const sf::Texture & World::getWorldTexture() {return displayManager.getWorldText
 void World::draw() {
     drawAnts();
     drawFood();
-    //drawMarkers();
+    drawMarkers();
 }
 
 void World::drawAnts() {
@@ -22,7 +22,9 @@ void World::drawAnts() {
 }
 
 //TODO to implement
-void World::drawMarkers() {}
+void World::drawMarkers() {
+    markerContainer->drawMarkers(&displayManager);
+}
 
 void World::drawFood() {
     foodPoints->drawFood(&displayManager);

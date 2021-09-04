@@ -2,6 +2,7 @@
 #define ANTSIMULATION_MARKER_H
 
 #include <SFML/Graphics.hpp>
+#include "DisplayManager.h"
 
 enum class Mode{
     toFood = 0,
@@ -43,6 +44,8 @@ public:
     void decreaseVisibility();
 
     float getNearestDistToMarker(sf::Vector2f position, Mode mode);
+
+    void drawMarkers(DisplayManager* displayManager);
 
 private:
     std::vector<Marker*> toFoodMarkers;

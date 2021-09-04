@@ -7,7 +7,10 @@ DisplayManager::DisplayManager() {
     loadAntTexture();
     loadAntSprite();
     createFoodSprite();
+    createMarkerSprites();
 }
+
+
 
 void DisplayManager::createWorldTexture() {
     if(!worldTexture.create(Config::boardWidth, Config::boardHeight)) throw std::runtime_error("Couldn't create WorldTexture");
@@ -29,6 +32,16 @@ void DisplayManager::createFoodSprite() {
         food.setRadius(Config::foodRadius);
         food.setOrigin(Config::foodRadius/2, Config::foodRadius/2);   //TODO not sure about that
         food.setFillColor(Config::foodColor);
+}
+
+void DisplayManager::createMarkerSprites() {
+    toFoodMarker.setRadius(Config::markerRadius);
+    toFoodMarker.setOrigin(Config::markerRadius/2, Config::markerRadius/2);
+    toFoodMarker.setFillColor(Config::toFoodMarkerColor);
+
+    toHomeMarker.setRadius(Config::markerRadius);
+    toHomeMarker.setOrigin(Config::markerRadius/2, Config::markerRadius/2);
+    toHomeMarker.setFillColor(Config::toHomeMarkerColor);
 }
 
 void DisplayManager::loadAntTexture(){
@@ -66,4 +79,14 @@ const sf::Texture& DisplayManager::getWorldTexture() {
 
 void DisplayManager::clearTexture() {
     worldTexture.clear(Config::backgroundColor);
+}
+
+void DisplayManager::drawToFoodMarker(sf::Vector2f position) {
+    toFoodMarker.setPosition(position);
+    worldTexture.draw(toFoodMarker);
+}
+
+void DisplayManager::drawToHomeMarker(sf::Vector2f position) {
+    toHomeMarker.setPosition(position);
+    worldTexture.draw(toHomeMarker);
 }

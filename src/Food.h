@@ -21,9 +21,13 @@ public:
 
     void addFood(sf::Vector2f pos);
 
+    void addUsedFood(sf::Vector2f pos);
+
     void drawFood(DisplayManager* displayManager);
 
 private:
+
+    std::vector<sf::Vector2f*> usedFoodPoints;
 
     std::vector<sf::Vector2f*> foodPoints;
 };

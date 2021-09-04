@@ -61,18 +61,20 @@ Marker* MarkerContainer::getNearestMarker(sf::Vector2f position, Mode mode, Mark
         if(toFoodMarkers.empty()) return nearestMarker;
         for (auto marker: toFoodMarkers) {
             float distance = utils::getDistance(position, marker->getPosition());
-            if(distance < nearestDistance && marker != markersToAvoid[0] && marker != markersToAvoid[1])
+            if(distance < nearestDistance && marker != markersToAvoid[0] && marker != markersToAvoid[1]){
                 nearestMarker = marker;
                 nearestDistance = distance;
+            }
         }
     }
     else{
         if(toHomeMarkers.empty()) return nearestMarker;
         for (auto marker: toHomeMarkers) {
             float distance = utils::getDistance(position, marker->getPosition());
-            if(distance < nearestDistance && marker != markersToAvoid[0] && marker != markersToAvoid[1])
+            if(distance < nearestDistance && marker != markersToAvoid[0] && marker != markersToAvoid[1]){
                 nearestMarker = marker;
-            nearestDistance = distance;
+                nearestDistance = distance;
+            }
         }
     }
     return nearestMarker;
@@ -100,4 +102,13 @@ void MarkerContainer::decreaseVisibility() {
         }
     }
 
+}
+
+void MarkerContainer::drawMarkers(DisplayManager *displayManager) {
+    for (auto marker: toFoodMarkers) {
+        displayManager->drawToFoodMarker(marker->getPosition());
+    }
+    for (auto marker: toHomeMarkers) {
+        displayManager->drawToHomeMarker(marker->getPosition());
+    }
 }

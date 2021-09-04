@@ -7,7 +7,7 @@
 #define DISTANCEWHENMOVING 0.5
 #define DISTANCETOFOOD 2
 #define DISTANCETOCOLONY 3
-#define TURNSTOLEAVEMARKER 10
+#define TURNSTOLEAVEMARKER 1000
 
 sf::Vector2f Ant::getPosition() {return position;}
 
@@ -62,7 +62,7 @@ void Ant::takeFood(Food* food) {
 void Ant::leaveFood(Food* food) {
     if(hasFood && utils::getDistance(position, sf::Vector2f(0.f, 0.f)) < DISTANCETOCOLONY){
         hasFood = false;
-        food->addFood(position);
+        food->addUsedFood(position);
     }
 }
 

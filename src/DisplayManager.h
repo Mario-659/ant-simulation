@@ -12,7 +12,9 @@ public:
 
     void drawAnt(sf::Vector2f position, float angle, bool hasFood);
 
-    //void drawMarker();
+    void drawToFoodMarker(sf::Vector2f position);
+
+    void drawToHomeMarker(sf::Vector2f position);
 
     void drawFood(sf::Vector2f position);
 
@@ -33,7 +35,13 @@ private:
 
     void createFoodSprite();
 
+    void createMarkerSprites();
+
     sf::CircleShape food;
+
+    sf::CircleShape toHomeMarker;
+
+    sf::CircleShape toFoodMarker;
 
     sf::Sprite antSprite;
 

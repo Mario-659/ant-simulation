@@ -7,6 +7,9 @@ Food::Food() {}
 void Food::addFood(sf::Vector2f pos) {
     foodPoints.push_back(new sf::Vector2f(pos));
 }
+void Food::addUsedFood(sf::Vector2f pos) {
+    usedFoodPoints.push_back(new sf::Vector2f(pos));
+}
 
 void Food::takeFood(sf::Vector2f pos) {
     if(foodPoints.empty()) throw std::runtime_error("Food positions data underflow");
@@ -36,4 +39,5 @@ sf::Vector2f* Food::getNearestFood(sf::Vector2f pos) {
 
 void Food::drawFood(DisplayManager *displayManager) {
     for(auto food: foodPoints) displayManager->drawFood(*food);
+    for(auto food: usedFoodPoints) displayManager->drawFood(*food);
 }
