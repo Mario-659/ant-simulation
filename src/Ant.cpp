@@ -7,7 +7,7 @@
 #define DISTANCEWHENMOVING 0.5
 #define DISTANCETOFOOD 2
 #define DISTANCETOCOLONY 3
-#define TURNSTOLEAVEMARKER 1000
+
 
 sf::Vector2f Ant::getPosition() {return position;}
 
@@ -19,8 +19,6 @@ void Ant::move(MarkerContainer* markerContainer, Food* foodPoints)
     moveForward();
     takeFood(foodPoints);
     leaveFood(foodPoints);
-    leaveMarker(*markerContainer);
-    markerContainer->decreaseVisibility();
 }
 
 //TODO refactor
@@ -71,13 +69,10 @@ void Ant::draw(DisplayManager* displayManager) {
 }
 
 void Ant::leaveMarker(MarkerContainer& markerContainer) {
-    static int turnsToLeaveMarker = TURNSTOLEAVEMARKER;
-    turnsToLeaveMarker--;
-    if(turnsToLeaveMarker == 0){
-        if(!hasFood) markerContainer.addMarker(position, Mode::toHome);
-        else markerContainer.addMarker(position, Mode::toFood);
-        turnsToLeaveMarker = TURNSTOLEAVEMARKER;
-    }
+    if(!hasFood) markerContainer.addMarker(position, Mode::toHome);
+    else markerContainer.addMarker(position, Mode::toFood);
+
+    markerContainer.decreaseVisibility();
 }
 
 float Ant::getAngle() {return direction;}

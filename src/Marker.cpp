@@ -1,9 +1,9 @@
 #include "Marker.h"
 #include "Utils.h"
 
-#define RATEOFDEACRESINGMARKERS 0.1f
+#define RATEOFDEACRESINGMARKERS 0.0f
 
-void Marker::decreaseVisibility() {visibility -+RATEOFDEACRESINGMARKERS;}
+void Marker::decreaseVisibility() {visibility -= RATEOFDEACRESINGMARKERS;}
 
 sf::Vector2f Marker::getPosition(){return position;};
 

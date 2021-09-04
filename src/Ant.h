@@ -33,9 +33,10 @@ public:
     bool isCarryingFood();
 
     void addLastMarker(Marker* lastMarker);
-private:
 
     void leaveMarker(MarkerContainer& markerContainer);
+private:
+
 
     void directionToMarker(MarkerContainer* markerContainer);
 
